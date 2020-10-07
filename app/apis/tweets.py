@@ -29,8 +29,7 @@ class TweetResource(Resource):
         tweet = tweet_repository.get(id)
         if tweet is None:
             api.abort(404, f"Tweet {id} doesn't exist")
-        else:
-            return tweet # tweet.as_dict()
+        return tweet # tweet.as_dict()
 
     def delete(self, id):
         tweet = tweet_repository.get(id)
@@ -63,5 +62,5 @@ class TweetResource(Resource):
     @api.doc('List a tweet')
     @api.marshal_with(tweet)
     def get(self):
-        tweet = tweet_repository.list()
+        tweet = tweet_repository.list_tweet()
         return tweet
