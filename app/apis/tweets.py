@@ -36,7 +36,7 @@ class TweetResource(Resource):
         tweet = tweet_repository.get(id)
         if tweet is not None:
             tweet_repository.remove(id)
-        return None, 204
+        return '', 204
 
     @api.marshal_with(tweet, code=204)
     @api.expect(post_parser)
@@ -46,7 +46,7 @@ class TweetResource(Resource):
             api.abort(404, f"Tweet {id} doesn't exist")
         else:
             tweet.text = api.payload["text"]
-            return tweet
+            return tweet, 204
 
 @api.route('/')
 @api.response(422, 'Invalid tweet')
