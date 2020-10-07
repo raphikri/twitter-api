@@ -22,7 +22,6 @@ class TweetRepository():
     def remove(self, id):
         for tweet in self.tweets:
             if id == tweet.id:
-                import pdb;pdb.set_trace()
                 self.tweets.pop(id)
 
     def clear(self):
