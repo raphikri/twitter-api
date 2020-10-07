@@ -16,6 +16,15 @@ class TweetRepository():
                 return tweet
         return None
 
+    def list(self):
+        return [tweet for tweet in self.tweets]
+
+    def remove(self, id):
+        for tweet in self.tweets:
+            if id == tweet.id:
+                import pdb;pdb.set_trace()
+                self.tweets.pop(id)
+
     def clear(self):
         self.tweets = []
         self.id = 1
